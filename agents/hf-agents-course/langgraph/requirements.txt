@@ -1,2 +1,5 @@
 langgraph
 langchain_openai
+langfuse
+langchain
+langchain_core
