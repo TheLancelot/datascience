@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio 
+notebook 
+ipykernel
+
+pip install torch torchvision torchaudio --force-reinstall --no-cache-dir --index-url https://download.pytorch.org/whl/cu126
+
+ydata_profiling
+sweetviz
+openpyxl
