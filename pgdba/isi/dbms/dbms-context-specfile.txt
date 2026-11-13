@@ -1,0 +1,44 @@
+ok can you guide me step by step
+
+I have to make a project implementing my dbms class learnings - these were the guidelines for the project
+choose project based on what you have learnt in class- implement and connect it, why choosen problem and dataset, insights and interpretation about data, few sql queries and relational algebra, can use some kmeans and stuff, or some ml algos, regarding ingestion and whatever, show some cool implementation shit
+
+Each member of the group will have to explain some part of the project and that will justify his contribution towards the project.
+The marks will be allotted on the basis of Relevance of the choice of the project (relevant for FDS course), Clarity of Presentation, Demonstration of what we learnt from this Course, Explanation and clear articulation of what has been learnt from the project, showing team work and collaboration, etc.
+
+-----
+i decided to go with airlines data
+The U.S. government publishes Flightwise data for every airport and every airline on the BTS website: Flightwise Departures data, domestic data. The data can be downloaded as CSVs by putting in different filters, such as the origin airport, the airline, and which dates, etc. We decided to go with the 11 busiest airports in the U.S. and the 7 big airlines. For 2 years, combined, we had 3.4 million rows of data.
+
+(data setup - not necessarily a info to be given as spec to the coding agent but just giving you context about my project)
+
+Now here to think of as a DBMS aspect, I firstly thought of the ER diagram.
+One thing I thought we can also display is that, because the files are downloaded individually as CSVs, they didn't have tags such as origin airport (only origin airport I think). It doesn't have a tag like origin airport. For every CSV the column names are the same so if you join them there will be a problem.
+We can show some SQL command where, for every CSV, we insert a column based on that airport. Later on we join all the data into one dataset and load it into a final CSV or final SQL.
+
+Also as ER, I wanted to keep it in three different tables. I decided to keep it in three different tables: airlines, airports, and the flight-level data. This does not reduce the number of rows but reduces redundancy and maintains consistency because I don't need to repeat whole airport names. I can just use airport tags and the same applies to the whole airline names. All the data from the main flight record table will be referenced in those separate tables so this will show the ER diagram's one-to-many and many-to-one aspect also.
+
+This will cover the database design aspect of the project, where I can show some `CREATE TABLE` and `INSERT INTO TABLE` queries (for example) to build the final version of the database, which I will use in my application.
+
+And for querying I can have a few sets of relational algebra queries run on the database to show as a demo for a few different questions, like a few interesting questions which might be insightful and which pop up when thinking of airlines data. We can write SQL queries for that also and we can show that executed. We can write multiple SQL queries and show which one is better, etc.
+------
+
+now as for the developable features
+the main thing i wanted to give is a text2sql chatbot feature and implement my professors teachings about security
+
+in the ui give registration and login option - with proper password hashing for login, have a role based system with least privilege etc
+in the chat with data feature - we utilize gemini flash llm api as the brain - where we have some rules and metadata for our database that it table names, business context etc along with few shot examples for it to correctly generate - i think we will surely need a parsing/validation/sql injection defence and refusal step for unsafe or unanswerable questions so that our app cant be taken advantage of
+
+all this while maintaining logs
+I can have some role-based access login such that only the admin, when logged in, can execute SQL queries directly and normal users, when logged in, can only ask test-to-SQL questions.
+
+
+for the sequel server i am using a local mssql server for class purposes as i dont need to host my db anywhere for now
+
+
+
+stack i planned we can use - python/fastapi/mssql server/either html css js or gradio/steamlit for frontend
+
+------------
+
+what do you think about the general idea of the project, any more inclusions needed or we are good here? then we can write the prompt to send to the plan mode of agent wrt the things that need the main development
